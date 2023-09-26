@@ -11,7 +11,6 @@ body {
     color: #eff;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     line-height: 1.5;
-    margin: 30px auto;
 }
 
 main {
@@ -19,6 +18,12 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: red;
+    margin: 80px auto;
+}
+
+h1 {
+    font-size: 2.5rem;
 }
 
 .material-symbols-outlined {
@@ -33,6 +38,8 @@ h1,
 
 .key-container {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .key {
@@ -45,12 +52,26 @@ h1,
     height: 150px;
 }
 
+.key.active {
+    background-color: orange;
+}
+
+.button {
+    margin: 30px;
+}
+
 button {
     background-color: #eff;
     margin: 10px;
-    padding: 10px;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
+    width: 10rem;
+    font-size: 1.5rem;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 footer {
