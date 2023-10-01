@@ -65,11 +65,15 @@ const endGame = () => {
     clearTimeout(timer);
 
     resetGame();
+
+    showModal()
 }
 
 const resetGame = () => {
     window.location.reload();
 }
+
+const showModal = () => overlay.classList.toggle('visible');
 
 // Add event listeners to variables
 playBtn.addEventListener('click', startGame);
