@@ -22,12 +22,17 @@ main {
     /* margin: 80px auto; */
 }
 
+.heading {
+    display: flex;
+    align-items: center;
+}
+
 h1 {
     font-size: 2.5rem;
 }
 
 .material-symbols-outlined {
-    font-size: inherit;
+    font-size: 2.5rem;
 }
 
 h1,
@@ -37,9 +42,11 @@ h1,
 }
 
 .key-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    /* flex-wrap: wrap; */
+    /* justify-content: center; */
 }
 
 .key {
@@ -48,8 +55,8 @@ h1,
     margin: 10px;
     padding: 20px;
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    width: 170px;
+    height: 170px;
     pointer-events: none;
 }
 
@@ -75,6 +82,14 @@ button {
 
 button:hover {
     cursor: pointer;
+}
+
+.play-btn.hide {
+    display: none;
+}
+
+.stop-btn.hide {
+    display: none;
 }
 
 footer {

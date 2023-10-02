@@ -12,6 +12,23 @@ let timer;
 let pace = 1000;
 let active = 0;
 let rounds = 0;
+let gameThemeSong;
+
+// Game sound function - adapted from w3schools
+function sound(src) {
+    this.sound = document.createElement('audio');
+    this.sound.src = src;
+    this.sound.setAttribute('preload', 'auto');
+    this.sound.setAttribute('controls', 'none');
+    this.sound.style.display = 'none';
+    document.body.appendChild(this.sound);
+    this.play = function() {
+        this.sound.play();
+    }
+    this.stop = function() {
+        this.sound.pause();
+    }
+}
 
 // Random function
 const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
@@ -37,7 +54,15 @@ const enableEvents = () => {
     });
 }
 
+stopBtn.classList.add('hide');
+
 const startGame = () => {
+    gameThemeSong = new sound('fur-elise-15061.mp3');
+    gameThemeSong.play();
+
+    playBtn.classList.add('hide');
+    stopBtn.classList.remove('hide');
+    
     if (rounds >= 3) return endGame();
 
     enableEvents();
@@ -61,6 +86,8 @@ const startGame = () => {
     }
 }
 
+const showModal = () => overlay.classList.toggle('visible');
+
 const endGame = () => {
     clearTimeout(timer);
 
@@ -73,7 +100,7 @@ const resetGame = () => {
     window.location.reload();
 }
 
-const showModal = () => overlay.classList.toggle('visible');
+
 
 // Add event listeners to variables
 playBtn.addEventListener('click', startGame);
