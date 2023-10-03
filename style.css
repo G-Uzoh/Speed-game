@@ -7,10 +7,16 @@
 }
 
 body {
-    background: #333;
+    background: linear-gradient(to bottom right, #5e59e8, #dbcdcd);
+    background-attachment: fixed;
     color: #eff;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 main {
@@ -41,15 +47,50 @@ h1,
     margin-bottom: 20px;
 }
 
-.key-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    /* flex-wrap: wrap; */
-    /* justify-content: center; */
+.piano {
+    display: flex;
+    flex-direction: column;
+    background-color: #333;
+    padding: 200px 10px 20px 10px;
+    border-radius: 10px;
+}
+
+.note-layout {
+    display: flex;
 }
 
 .key {
+    border-radius: 5px 5px 8px 8px;
+    pointer-events: none;
+}
+
+.white {
+    width: 100px;
+    height: 330px;
+    background: linear-gradient(#fff 96%, #eee 4%);
+    border: 1px solid #333;
+    border-top: 0.5px solid #fff;
+}
+
+.black {
+    width: 60px;
+    height: 220px;
+    background: linear-gradient(#333, #000);
+    margin-left: -30px;
+    margin-right: -30px;
+    z-index: 2;
+    border-top: 0.5px solid #fff;
+}
+
+/* .key-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+} */
+
+/* .key {
     background: #fff;
     color: #333;
     margin: 10px;
@@ -58,7 +99,7 @@ h1,
     width: 170px;
     height: 170px;
     pointer-events: none;
-}
+} */
 
 .key.active {
     background-color: orange;
@@ -106,6 +147,7 @@ footer {
     left: 0;
     height: 100vh;
     width: 100vw;
+    z-index: 3;
 }
 
 .modal-overlay.visible {
