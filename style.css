@@ -169,9 +169,7 @@ h1,
 } */
 
 .key.active {
-    background-color: orange;
-    background-image: url('https://topmusicanswers.com/storage/img/images_5/eighth_note.png');
-    background-size: cover;
+    background: orange;
 }
 
 .button {
