@@ -20,8 +20,16 @@
 
       <!-- Piano layout -->
       <div class="piano">
-        <div class="utility">
-          <h4><span>Awesome</span> Piano</h4>
+        <h4><span>Awesome</span> Piano</h4>
+        <div class="header">
+          <div class="utility volume">
+            <span>Volume</span> <input type="range" name="vol" id="vol" />
+          </div>
+          <div class="display-window"></div>
+          <div class="utility show-key">
+            <span>Show keys</span>
+            <input type="checkbox" name="show-key" id="show-key" />
+          </div>
         </div>
         <div class="note-layout">
           <div data-note="C" class="key white"></div>
