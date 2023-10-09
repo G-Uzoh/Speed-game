@@ -196,6 +196,58 @@ footer {
     text-align: center;
 }
 
+.help-btn {
+    width: 50px;
+    height: 50px;
+    background: #527cf0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    border: 1px solid white;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    cursor: pointer;
+}
+
+.instruction-overlay {
+    background-color: rgb(51, 51, 51, 0.92);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 3;
+}
+
+.instruction-overlay.visible {
+    display: flex;
+}
+
+.instruction-modal {
+    position: relative;
+}
+
+#close-btn {
+    background: #bf0a0a;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0.1rem;
+    right: 0.1rem;
+    margin: 0;
+    padding: 0;
+}
+
 .modal-overlay {
     background-color: rgb(51, 51, 51, 0.92);
     display: none;
@@ -213,7 +265,8 @@ footer {
     display: flex;
 }
 
-.modal {
+.modal,
+.instruction-modal {
     background: white;
     color: #333;
     padding: 10px;

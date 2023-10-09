@@ -3,6 +3,9 @@ const playBtn = document.querySelector('#play-btn');
 const stopBtn = document.querySelector('#stop-btn');
 const pianoKeys = document.querySelectorAll('.key');
 const score = document.querySelector('.result');
+const gameHelpBtn = document.querySelector('.help-btn');
+const gameInstructionsOverlay = document.querySelector('.instruction-overlay');
+const instructionsCloseBtn = document.querySelector('#close-btn');
 const modalGameScore = document.querySelector('#result');
 const modalDisplayMessage = document.querySelector('#modal-msg');
 const overlay = document.querySelector('.modal-overlay');
@@ -65,6 +68,11 @@ const playNote = (i) => {
     gameScore += 1;
     score.textContent = gameScore;
     modalGameScore.textContent = gameScore;
+
+    // Game over message display
+    let message = (modalGameScore.textContent > 20) ? 'Congratulations! You are a virtuoso pianist' : (modalGameScore.textContent > 10) ? 'Good job, you\'re at intermediate level. You need to practise more' : 'You\'re at amateur level. Please study the basics';
+
+    modalDisplayMessage.textContent = message;
 }
 
 // Add a click event listener to each key
@@ -110,13 +118,13 @@ const startGame = () => {
     }
 }
 
+// Game instructions visibility
+const showInstructions = () => {
+    gameInstructionsOverlay.classList.contains('visible') ? gameInstructionsOverlay.classList.remove('visible') : gameInstructionsOverlay.classList.add('visible');
+}
+
 // Modal visibility
 const showModal = () => overlay.classList.toggle('visible');
-
-// Game over message display
-let message = (modalGameScore.textContent <= 10) ? 'You\'re at amateur level. Please study the basics' : (modalGameScore.textContent <= 20) ? 'Good job, you\re at intermediate level. You need to practise more' : 'Congratulations! You are a virtuoso pianist';
-
-modalDisplayMessage.textContent = message;
 
 // Game ends
 const endGame = () => {
@@ -136,6 +144,8 @@ const resetGame = () => {
 // Add event listeners to variables
 playBtn.addEventListener('click', startGame);
 stopBtn.addEventListener('click', endGame);
+gameHelpBtn.addEventListener('click', showInstructions);
+instructionsCloseBtn.addEventListener('click', showInstructions);
 modalCloseBtn.addEventListener('click', resetGame);
 
 // Add keyboard accessibility
@@ -171,4 +181,9 @@ document.addEventListener('keydown', (e) => {
     gameScore += 1;
     score.textContent = gameScore;
     modalGameScore.textContent = gameScore;
+
+    // Game over message display
+    let message = (modalGameScore.textContent > 20) ? 'Congratulations! You are a virtuoso pianist' : (modalGameScore.textContent > 10) ? 'Good job, you\'re at intermediate level. You need to practise more' : 'You\'re at amateur level. Please study the basics';
+
+    modalDisplayMessage.textContent = message;
 });
