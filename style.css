@@ -24,8 +24,6 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: red; */
-    /* margin: 80px auto; */
 }
 
 .heading {
@@ -48,7 +46,6 @@ h1,
 }
 
 .piano {
-    /* width: 800px; */
     background-color: #141414;
     border-radius: 10px;
     padding: 35px 40px;
@@ -164,25 +161,6 @@ h1,
     box-shadow: inset -5px 5px 15px rgba(255, 255, 255, 0.1);
     background: linear-gradient(to bottom, #000, #434343);
 }
-
-/* .key-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-} */
-
-/* .key {
-    background: #fff;
-    color: #333;
-    margin: 10px;
-    padding: 20px;
-    border-radius: 50%;
-    width: 170px;
-    height: 170px;
-    pointer-events: none;
-} */
 
 .key.active {
     background: orange;

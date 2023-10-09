@@ -4,7 +4,7 @@ const stopBtn = document.querySelector('#stop-btn');
 const pianoKeys = document.querySelectorAll('.key');
 const score = document.querySelector('.result');
 const modalGameScore = document.querySelector('#result');
-const modalDisplay = document.querySelector('#modal-msg');
+const modalDisplayMessage = document.querySelector('#modal-msg');
 const overlay = document.querySelector('.modal-overlay');
 const modalCloseBtn = document.querySelector('.modal-btn');
 
@@ -112,6 +112,11 @@ const startGame = () => {
 
 // Modal visibility
 const showModal = () => overlay.classList.toggle('visible');
+
+// Game over message display
+let message = (modalGameScore.textContent <= 10) ? 'You\'re at amateur level. Please study the basics' : (modalGameScore.textContent <= 20) ? 'Good job, you\re at intermediate level. You need to practise more' : 'Congratulations! You are a virtuoso pianist';
+
+modalDisplayMessage.textContent = message;
 
 // Game ends
 const endGame = () => {
