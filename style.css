@@ -62,9 +62,20 @@ h1,
 }
 
 .display-window {
-    width: 150px;
-    height: 50px;
-    background: greenyellow;
+    width: 200px;
+    height: 80px;
+    background: #527cf0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 3px;
+}
+
+.display-window p {
+    font-family: 'Pixelify Sans', cursive;
+    font-size: 2.3rem;
+    color: #333;
 }
 
 .utility {
@@ -91,6 +102,10 @@ h1,
     border: none;
     border-radius: 1.875rem;
     position: relative;
+}
+
+.show-key input:hover {
+    cursor: pointer;
 }
 
 .show-key input::before {
@@ -122,8 +137,9 @@ h1,
 }
 
 .white {
-    width: 90px;
+    width: 95px;
     height: 295px;
+    /* margin: 0 1.5px; */
     background: linear-gradient(#fff 96%, #eee 4%);
     border: 1px solid #000;
     border-top: 0.5px solid #fff;

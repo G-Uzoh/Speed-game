@@ -1,8 +1,9 @@
 // DOM variables
 const playBtn = document.querySelector('#play-btn');
 const stopBtn = document.querySelector('#stop-btn');
-const keys = document.querySelectorAll('.key');
+const pianoKeys = document.querySelectorAll('.key');
 const score = document.querySelector('.result');
+const modalGameScore = document.querySelector('#result');
 const modalDisplay = document.querySelector('#modal-msg');
 const overlay = document.querySelector('.modal-overlay');
 const modalCloseBtn = document.querySelector('.modal-btn');
@@ -23,12 +24,7 @@ const b = document.querySelector('#B');
 const theme = document.querySelector('#theme');
 
 // Variables for keyboard accessibility
-const whiteKeys = ['z', 'x', 'c', 'v', 'b', 'n', 'm'];
-const blackKeys = ['s', 'd', 'g', 'h', 'j'];
-const allKeys = ['z', 'x', 'c', 'v', 'b', 'n', 'm', 's', 'd', 'g', 'h', 'j'];
-
-const whitePianoKeys = document.querySelectorAll('.key.white');
-const blackPianoKeys = document.querySelectorAll('.key.black');
+const allKeysList = ['z', 's', 'x', 'd', 'c', 'v', 'g', 'b', 'h', 'n', 'j', 'm'];
 
 // Global variables
 let gameScore = 0;
@@ -41,11 +37,6 @@ let pianoSound;
 
 // Random function
 const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
-
-// const clickPlay = () => {
-//     if (clickSound.paused) clickSound.play();
-//     else clickSound.currentTime = 0;
-// }
 
 // Piano sound function
 const playNote = (i) => {
@@ -66,22 +57,24 @@ const playNote = (i) => {
         else if (i === 10) pianoSound = bb;
         else if (i === 11) pianoSound = b;
         
-        if (pianoSound.paused) pianoSound.play();
-        else pianoSound.currentTime = 0;
+        pianoSound.currentTime = 0;
+        pianoSound.play();
     }
 
     rounds--;
     gameScore += 1;
     score.textContent = gameScore;
+    modalGameScore.textContent = gameScore;
 }
 
-keys.forEach((key, i) => {
+// Add a click event listener to each key
+pianoKeys.forEach((key, i) => {
     key.addEventListener('click', () => playNote(i));
 });
 
 // HTML pointer events
 const enableEvents = () => {
-    keys.forEach(key => {
+    pianoKeys.forEach(key => {
         key.style.pointerEvents = 'auto';
     });
 }
@@ -99,8 +92,8 @@ const startGame = () => {
     enableEvents();
     const newActive = pickNew(active);
 
-    keys[newActive].classList.toggle('active');
-    keys[active].classList.remove('active');
+    pianoKeys[newActive].classList.toggle('active');
+    pianoKeys[active].classList.remove('active');
 
     active = newActive;
 
@@ -130,6 +123,7 @@ const endGame = () => {
     gameThemeSong.play();
 }
 
+// Reset game after game over
 const resetGame = () => {
     window.location.reload();
 }
@@ -138,3 +132,38 @@ const resetGame = () => {
 playBtn.addEventListener('click', startGame);
 stopBtn.addEventListener('click', endGame);
 modalCloseBtn.addEventListener('click', resetGame);
+
+// Add keyboard accessibility
+document.addEventListener('keydown', (e) => {
+    if (e.repeat) return;
+
+    const key = e.key;
+
+    const keyIndex = allKeysList.indexOf(key);
+
+    if (keyIndex === -1) return;
+
+    if (keyIndex !== active) return endGame();
+    else if (keyIndex === active) {
+        if (keyIndex === 0) pianoSound = c;
+        else if (keyIndex === 1) pianoSound = db;
+        else if (keyIndex === 2) pianoSound = d;
+        else if (keyIndex === 3) pianoSound = eb;
+        else if (keyIndex === 4) pianoSound = e;
+        else if (keyIndex === 5) pianoSound = f;
+        else if (keyIndex === 6) pianoSound = gb;
+        else if (keyIndex === 7) pianoSound = g;
+        else if (keyIndex === 8) pianoSound = ab;
+        else if (keyIndex === 9) pianoSound = a;
+        else if (keyIndex === 10) pianoSound = bb;
+        else if (keyIndex === 11) pianoSound = b;
+    }
+
+    pianoSound.currentTime = 0;
+    pianoSound.play();
+
+    rounds--;
+    gameScore += 1;
+    score.textContent = gameScore;
+    modalGameScore.textContent = gameScore;
+});
