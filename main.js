@@ -3,6 +3,7 @@ const playBtn = document.querySelector('#play-btn');
 const stopBtn = document.querySelector('#stop-btn');
 const pianoKeys = document.querySelectorAll('.key');
 const score = document.querySelector('.result');
+const volumeSlider = document.querySelector('.volume-slider input');
 const showKeysBtn = document.querySelector('.show-key input[name=show-key]');
 const gameHelpBtn = document.querySelector('.help-btn');
 const gameInstructionsOverlay = document.querySelector('.instruction-overlay');
@@ -69,6 +70,8 @@ const playNote = (i) => {
         
         pianoSound.currentTime = 0;
         pianoSound.play();
+
+        handleVolume(i);
     }
 
     rounds--;
@@ -148,7 +151,13 @@ const resetGame = () => {
     window.location.reload();
 }
 
+// Sound volume function
+const handleVolume = (e) => {
+    pianoSound.volume = e.target.value;
+}
+
 // Add event listeners to variables
+volumeSlider.addEventListener('input', handleVolume);
 showKeysBtn.addEventListener('click', displayKeys);
 playBtn.addEventListener('click', startGame);
 stopBtn.addEventListener('click', endGame);
@@ -184,6 +193,8 @@ document.addEventListener('keydown', (e) => {
 
     pianoSound.currentTime = 0;
     pianoSound.play();
+
+    handleVolume(key);
 
     rounds--;
     gameScore += 1;
