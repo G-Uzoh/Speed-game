@@ -151,7 +151,7 @@ h1,
     display: none;
 }
 
-.key span.show {
+.key.show span {
     display: block;
 }
 
@@ -276,6 +276,15 @@ footer {
     text-align: justify;
 }
 
+.utility-tip {
+    margin: 10px auto;
+}
+
+.tip,
+.show-tip {
+    font-weight: 600;
+}
+
 .scoring h3 {
     text-align: center;
 }
@@ -320,7 +329,7 @@ footer {
     right: 0.5rem;
     margin: 0;
     border: none;
-    border-radius: 0;
+    border-radius: 2px;
 }
 
 /* Game-over modal styles */

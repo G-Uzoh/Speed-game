@@ -4,7 +4,7 @@ const stopBtn = document.querySelector('#stop-btn');
 const pianoKeys = document.querySelectorAll('.key');
 const score = document.querySelector('.result');
 const volumeSlider = document.querySelector('.volume-slider input');
-const showKeysBtn = document.querySelector('.show-key input[name=show-key]');
+const showKeysBtn = document.querySelector('.show-key input');
 const gameHelpBtn = document.querySelector('.help-btn');
 const gameInstructionsOverlay = document.querySelector('.instruction-overlay');
 const instructionsCloseBtn = document.querySelector('#close-btn');
@@ -45,8 +45,7 @@ const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)
 
 // Piano utility function
 const displayKeys = () => {
-    const keyboardKeys = document.querySelectorAll('.key span');
-    
+    pianoKeys.forEach(key => key.classList.toggle('show'));
 }
 
 // Piano sound function
