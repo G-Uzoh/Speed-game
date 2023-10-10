@@ -106,6 +106,15 @@ h1,
     transform: rotate(-90deg);
 }
 
+.show-key {
+    display: flex;
+    flex-direction: column;
+}
+
+.show-key span {
+    margin-bottom: 5px;
+}
+
 .show-key input {
     width: 3.75rem;
     height: 1.875rem;
