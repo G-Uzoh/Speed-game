@@ -36,10 +36,6 @@ h1 {
     font-size: 2.5rem;
 }
 
-.material-symbols-outlined {
-    font-size: 2.5rem;
-}
-
 h1,
 .score,
 .target-container {
@@ -62,6 +58,12 @@ h1,
     color: #b2b2b2;
 }
 
+.name {
+    font-family: 'Tangerine', cursive;
+    font-weight: bold;
+    font-size: 2.4rem;
+}
+
 .display-window {
     width: 230px;
     height: 78px;
@@ -74,8 +76,8 @@ h1,
 }
 
 .display-window p {
-    font-family: 'Pixelify Sans', cursive;
-    font-size: 2.3rem;
+    font-family: 'Handjet', cursive;
+    font-size: 3rem;
     color: #333;
 }
 
@@ -201,7 +203,8 @@ h1,
 
 /* Game button styles */
 button {
-    background-color: #eff;
+    background-color: #466bd1;
+    color: #e2e2e2;
     margin: 10px;
     padding: 10px 20px;
     border: none;
@@ -227,6 +230,15 @@ footer {
 }
 
 /* Game instructions modal styles */
+.tooltip {
+    position: absolute;
+    bottom: 3.2rem;
+    right: 0.1rem;
+    font-size: 1.2rem;
+    color: #333;
+    visibility: hidden;
+}
+
 .help-btn {
     width: 50px;
     height: 50px;
@@ -242,6 +254,10 @@ footer {
     right: 2rem;
     cursor: pointer;
     font-family: Verdana, sans-serif;
+}
+
+.help-btn:hover .tooltip {
+    visibility: visible;
 }
 
 .instruction-overlay {

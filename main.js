@@ -69,8 +69,6 @@ const playNote = (i) => {
         
         pianoSound.currentTime = 0;
         pianoSound.play();
-
-        handleVolume(i);
     }
 
     rounds--;
@@ -82,6 +80,8 @@ const playNote = (i) => {
     let message = (modalGameScore.textContent > 20) ? 'Congratulations! You are a virtuoso pianist' : (modalGameScore.textContent > 10) ? 'Good job, you\'re at intermediate level. You need to practise more' : 'You\'re at amateur level. Please study the basics';
 
     modalDisplayMessage.textContent = message;
+
+    handleVolume(i);
 }
 
 // Add a click event listener to each key
@@ -193,8 +193,6 @@ document.addEventListener('keydown', (e) => {
     pianoSound.currentTime = 0;
     pianoSound.play();
 
-    handleVolume(key);
-
     rounds--;
     gameScore += 1;
     score.textContent = gameScore;
@@ -204,4 +202,6 @@ document.addEventListener('keydown', (e) => {
     let message = (modalGameScore.textContent > 20) ? 'Congratulations! You are a virtuoso pianist' : (modalGameScore.textContent > 10) ? 'Good job, you\'re at intermediate level. You need to practise more' : 'You\'re at amateur level. Please study the basics';
 
     modalDisplayMessage.textContent = message;
+
+    handleVolume(keyIndex);
 });

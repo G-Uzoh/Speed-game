@@ -3,14 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
-    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Tangerine:wght@400;700&family=Handjet:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
@@ -20,14 +16,13 @@
     <main>
       <div class="heading">
         <h1>Play the right note!</h1>
-        <span class="material-symbols-outlined"> piano </span>
       </div>
       <p class="score">Score: <span class="result">0</span></p>
 
       <!-- Piano layout -->
       <div class="piano">
         <header>
-          <h2>Awesome Piano</h2>
+          <h2><span class="name">Awesome</span> Piano</h2>
           <div class="utility volume-slider">
             <span>Volume</span>
             <input type="range" min="0" max="1" value="0.5" step="any" />
@@ -80,7 +75,10 @@
 
     <footer>
       <!-- Game instructions -->
-      <div class="help-btn">?</div>
+      <div class="help-btn">
+        <div class="tooltip">Help</div>
+        ?
+      </div>
       <div class="instruction-overlay">
         <div class="instruction-modal">
           <h2 class="how">How to play the game</h2>
