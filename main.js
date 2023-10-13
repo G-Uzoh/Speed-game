@@ -18,7 +18,7 @@ const c = document.querySelector('#C');
 const db = document.querySelector('#Db');
 const d = document.querySelector('#D');
 const eb = document.querySelector('#Eb');
-const e = document.querySelector('#E');
+const eNote = document.querySelector('#E');
 const f = document.querySelector('#F');
 const gb = document.querySelector('#Gb');
 const g = document.querySelector('#G');
@@ -48,6 +48,11 @@ const displayKeys = () => {
     pianoKeys.forEach(key => key.classList.toggle('show'));
 }
 
+// Sound volume function
+const handleVolume = () => {
+    pianoSound.volume = volumeSlider.value;
+}
+
 // Piano sound function
 const playNote = (i) => {
 
@@ -58,7 +63,7 @@ const playNote = (i) => {
         else if (i === 1) pianoSound = db;
         else if (i === 2) pianoSound = d;
         else if (i === 3) pianoSound = eb;
-        else if (i === 4) pianoSound = e;
+        else if (i === 4) pianoSound = eNote;
         else if (i === 5) pianoSound = f;
         else if (i === 6) pianoSound = gb;
         else if (i === 7) pianoSound = g;
@@ -150,11 +155,6 @@ const resetGame = () => {
     window.location.reload();
 }
 
-// Sound volume function
-const handleVolume = (e) => {
-    pianoSound.volume = e.target.value;
-}
-
 // Add event listeners to variables
 volumeSlider.addEventListener('input', handleVolume);
 showKeysBtn.addEventListener('click', displayKeys);
@@ -180,7 +180,7 @@ document.addEventListener('keydown', (e) => {
         else if (keyIndex === 1) pianoSound = db;
         else if (keyIndex === 2) pianoSound = d;
         else if (keyIndex === 3) pianoSound = eb;
-        else if (keyIndex === 4) pianoSound = e;
+        else if (keyIndex === 4) pianoSound = eNote;
         else if (keyIndex === 5) pianoSound = f;
         else if (keyIndex === 6) pianoSound = gb;
         else if (keyIndex === 7) pianoSound = g;
